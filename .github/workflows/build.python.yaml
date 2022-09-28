@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Run syntax checker
-        run: black --check --diff $(git ls-files '${{ inputs.name }}/*.py')
       - name: Build project
         run: bazel build //${{ inputs.name }}
+      - name: Run syntax checker
+        run: black --check --diff $(git ls-files '${{ inputs.name }}/*.py')

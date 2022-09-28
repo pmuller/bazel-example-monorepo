@@ -1,2 +1,4 @@
+from colorama import Fore, Style
+
 def foo():
-    return 'foo'
+    return Fore.GREEN + 'foo' + Style.RESET_ALL

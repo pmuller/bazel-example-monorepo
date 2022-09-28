@@ -1,2 +1,1 @@
-def foo():
-    return 'foo'
+from .foo import foo

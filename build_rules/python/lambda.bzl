@@ -49,6 +49,9 @@ def _py_lambda_zip_impl(ctx):
 
     args = []
     for dep in deps.to_list():
+        # Ignore the Lambda own code (added in the next loop)
+        if dep.short_path == ctx.attr.name or dep.short_path.startswith(ctx.attr.name + '/'):
+            continue
         # Ignore site-packages/__init__.py
         if dep.short_path.endswith('/site-packages/__init__.py'):
             continue

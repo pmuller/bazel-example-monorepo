@@ -5,7 +5,7 @@ This is a sample Python monorepo I use to learn how to use Bazel.
 ## Update requirements lock file
 
 ```shell
-$ bazel run //3rdparty:requirements.update
+bazel run //3rdparty:requirements.update
 ```
 
 ## CLI Tool
@@ -31,7 +31,7 @@ foo
 ## Lambda function
 
 ```shell
-$ bazelisk build //barlambda
+bazelisk build //barlambda
 ```
 
 Then upload `bazel-bin/barlambda/barlambda.zip` to AWS Lambda.

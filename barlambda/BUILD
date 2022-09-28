@@ -3,7 +3,7 @@ load("@dependencies//:requirements.bzl", "requirement")
 
 py_library(
     name = "main",
-    srcs = ["lambda_function.py"],
+    srcs = glob(["*.py"]),
     deps = ["//libbar"],
 )
 

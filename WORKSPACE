@@ -15,3 +15,14 @@ python_register_toolchains(
     name = "python3_10",
     python_version = "3.10",
 )
+
+load("@rules_python//python:pip.bzl", "pip_parse")
+
+pip_parse(
+   name = "dependencies",
+   requirements_lock = ":requirements.txt",
+)
+
+load("@dependencies//:requirements.bzl", "install_deps")
+
+install_deps()

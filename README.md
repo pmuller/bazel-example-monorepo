@@ -14,4 +14,5 @@ Run
 ```shell
 $ ./bazel-bin/foocli/foocli
 foo
+10.31.33.7
 ```

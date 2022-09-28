@@ -1,4 +1,7 @@
-# Based on https://stackoverflow.com/a/72049294/147666
+"""Build a Python Lambda functio bundler.
+
+Based on https://stackoverflow.com/a/72049294/147666
+"""
 
 def contains(pattern):
     return "contains:" + pattern

@@ -103,7 +103,7 @@ _py_lambda_zip = rule(
         "ignore": attr.string_list(),
         "_zipper": attr.label(
             default = Label("@bazel_tools//tools/zip:zipper"),
-            cfg = "host",
+            cfg = "exec",
             executable = True,
         ),
         "output": attr.output(),

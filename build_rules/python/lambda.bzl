@@ -55,6 +55,9 @@ def _py_lambda_zip_impl(ctx):
         # Ignore site-packages/__init__.py
         if dep.short_path.endswith('/site-packages/__init__.py'):
             continue
+        # Ignore dist-info directories
+        if '.dist-info/' in dep.short_path:
+            continue
 
         short_path = _short_path(dep)
 

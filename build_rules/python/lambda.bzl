@@ -35,7 +35,7 @@ def _short_path(file_):
         short_path = short_path[second_slash + 1:]
 
     # Strip "site-packages/" prefix
-    if short_path.startswith('site-packages/'):
+    if short_path.startswith("site-packages/"):
         return short_path[14:]
 
     return short_path
@@ -50,13 +50,15 @@ def _py_lambda_zip_impl(ctx):
     args = []
     for dep in deps.to_list():
         # Ignore the Lambda own code (added in the next loop)
-        if dep.short_path == ctx.attr.name or dep.short_path.startswith(ctx.attr.name + '/'):
+        if dep.short_path == ctx.attr.name or dep.short_path.startswith(ctx.attr.name + "/"):
             continue
+
         # Ignore site-packages/__init__.py
-        if dep.short_path.endswith('/site-packages/__init__.py'):
+        if dep.short_path.endswith("/site-packages/__init__.py"):
             continue
+
         # Ignore dist-info directories
-        if '.dist-info/' in dep.short_path:
+        if ".dist-info/" in dep.short_path:
             continue
 
         short_path = _short_path(dep)
@@ -70,7 +72,7 @@ def _py_lambda_zip_impl(ctx):
     # MODIFICATION: Added source files to the map of files to zip
     source_files = ctx.attr.target[DefaultInfo].files
     for source_file in source_files.to_list():
-        args.append(source_file.basename+"="+source_file.path)
+        args.append(source_file.basename + "=" + source_file.path)
 
     ctx.actions.run(
         outputs = [f],
@@ -116,7 +118,7 @@ DEFAULT_IGNORE = (
     startswith("botocore/"),
 )
 
-def py_lambda_zip(name, target, ignore=DEFAULT_IGNORE, **kwargs):
+def py_lambda_zip(name, target, ignore = DEFAULT_IGNORE, **kwargs):
     _py_lambda_zip(
         name = name,
         target = target,

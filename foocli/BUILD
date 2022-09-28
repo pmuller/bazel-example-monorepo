@@ -4,5 +4,8 @@ load("@dependencies//:requirements.bzl", "requirement")
 py_binary(
     name = "foocli",
     srcs = ["foocli.py"],
-    deps = ["//libfoo", requirement("WhatIsMyIP")],
+    deps = [
+        "//libfoo",
+        requirement("WhatIsMyIP"),
+    ],
 )

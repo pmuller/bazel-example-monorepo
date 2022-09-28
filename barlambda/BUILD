@@ -1,4 +1,4 @@
-load("//build_rules/python:lambda.bzl", "contains", "endswith", "py_lambda_zip", "startswith")
+load("//build_rules/python:lambda.bzl", "py_lambda_zip")
 load("@dependencies//:requirements.bzl", "requirement")
 
 py_library(

@@ -3,6 +3,13 @@ Example Python monorepo using Bazel
 
 This is a sample Python monorepo I use to learn how to use Bazel.
 
+Update requirements lock file
+-----------------------------
+
+```shell
+$ bazel run //3rdparty:requirements.update
+```
+
 Build
 -----
 

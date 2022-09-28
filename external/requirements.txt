@@ -1,2 +1,2 @@
-WhatIsMyIP==2022.7.10 --hash=sha256:039fc1f50d1cfbc3d04af2d34bfcf5ef9b7ade83dd701d21e4e0f8374f8441e0
-colorama==0.4.5 --hash=sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4
+WhatIsMyIP==2022.7.10
+colorama==0.4.5

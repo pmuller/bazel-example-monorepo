@@ -1,0 +1,27 @@
+name: Build Python
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        type: string
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10"]
+    defaults:
+      run:
+        working-directory: ${{ inputs.name }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run syntax checker
+        run: black --check --diff $(git ls-files '${{ inputs.name }}/*.py')
+      - name: Build project
+        run: bazel build //${{ inputs.name }}

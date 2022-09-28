@@ -1,0 +1,14 @@
+name: Build libfoo
+
+on:
+  push:
+    paths:
+      - .github/workflows/build.python.yaml
+      - .github/workflows/build.libfoo.yaml
+      - libfoo/**
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.python.yaml
+    with:
+      name: libfoo
